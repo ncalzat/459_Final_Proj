@@ -38,8 +38,9 @@ TARGET_DOMAINS = [
 # if you want to cap the *input* size.
 INITIAL_CANDIDATE_LIMIT = 14000 # Set to None or a large integer
 
+OUTPUT_FOLDER = "DataExtract/Data"
 # Output file to store results (JSON Lines format)
-OUTPUT_FILE = "stackexchange_cdxtoolkit_data_all_fixed.jsonl" # Adjusted output name
+OUTPUT_FILE = os.join(OUTPUT_FOLDER, "stackexchange_cdxtoolkit_data_all_fixed.jsonl") # Adjusted output name
 # Number of parallel workers for downloading/processing WARC records
 MAX_WORKERS = 10 # Adjust based on your machine's capability and network
 

@@ -1,3 +1,14 @@
 scipy
 matplotlib
 networkx
+cdx_toolkit
+warcio
+trafilatura
+bs4
+urllib
+sentence_transformers
+numpy
+torch
+transformers
+accelerate
+huggingface_hub

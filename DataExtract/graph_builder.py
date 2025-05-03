@@ -1,12 +1,15 @@
 import json
+import os
 import networkx as nx
 import logging
 from urllib.parse import urlparse, urldefrag # For basic canonicalization
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-INPUT_JSONL_FILE = "stackexchange_cdxtoolkit_data_all_fixed.jsonl"
-GRAPH_OUTPUT_FILE = "stackexchange_graph.gexf" # Or .adjlist, .pkl etc.
+OUTPUT_FOLDER = "DataExtract/Data"
+
+INPUT_JSONL_FILE = "Data/stackexchange_cdxtoolkit_data_all_fixed.jsonl"
+GRAPH_OUTPUT_FILE = os.join(OUTPUT_FOLDER, "stackexchange_graph.gexf") # Or .adjlist, .pkl etc.
 
 def canonicalize_url(url):
     """Basic URL canonicalization: remove fragment, add scheme if missing."""
@@ -112,8 +115,8 @@ if __name__ == "__main__":
     logging.info("Graph saved.")
 
     # Save mappings and text data (optional, but useful)
-    MAPPING_FILE = "url_id_mapping.json"
-    TEXT_DATA_FILE = "node_text_data.json" # Map ID -> text
+    MAPPING_FILE = os.join(OUTPUT_FOLDER,"url_id_mapping.json")
+    TEXT_DATA_FILE = os.join(OUTPUT_FOLDER,"node_text_data.json") # Map ID -> text
 
     logging.info(f"Saving URL-ID mappings to {MAPPING_FILE}...")
     with open(MAPPING_FILE, 'w', encoding='utf-8') as f:
